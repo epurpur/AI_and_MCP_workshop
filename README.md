@@ -41,9 +41,11 @@ The UVA Library StatLab provides free statistics & similar technical consulting 
 
 
 ----------------------------------------------------------------------------------------------------
-**APIs (Application Programming Interface)** have been a way to allow computers or systems to communicate with each one another for some time now. Now, in the AI-enabled world that we live in, a new technology is becoming more prevalent, **MCP (Model Context Protocol)**.
+In the AI-enabled world that we live in, a new technology is becoming more prevalent, **MCP (Model Context Protocol)**.
 
-## What is an API?
+## Precursor - What is an API?
+Personally, I like to think of MCP as an evolution to pre-existing systems, such as APIs. So let's cover a little background first. 
+
 *The following excerpt is taken from [this site](https://www.mulesoft.com/resources/api/what-is-an-api)*
 API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. By establishing a common set of rules for exchanging information, APIs make it easier for two parties to communicate with eachother. Each time you use an app like Instagram, find a song you like on Spotify, or check the weather on your phone, you’re using an API.
 
@@ -56,5 +58,10 @@ A common API architectural style is **REST**, which relies on the HTTP protocol 
 
 Good example of a REST API: [https://newsapi.org/](https://newsapi.org/)
 
+
 ## What is MCP?
-MCP, or Model Context Protocol, is an open-source standard created by Anthropic that gives a universal way for AI applications to connect to local files, databases, external applications, etc.  
+MCP, or Model Context Protocol, is an open-source standard created by Anthropic that gives a universal way for AI applications to connect to local files, databases, external applications, etc. MCP bridges AI and your data in a three part system.
+
+- Host. This is the main AI application you are using (ex: Claude Desktop)
+- Client. The component in the application that manages your connection to outside resources
+- Server. A lightweight program that securely talks to your data and translates it into a format the AI understands. 
