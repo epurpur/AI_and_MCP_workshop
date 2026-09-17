@@ -44,7 +44,13 @@ The UVA Library StatLab provides free statistics & similar technical consulting 
 ----------------------------------------------------------------------------------------------------
 In the AI-enabled world that we live in, a new technology is becoming more prevalent, **MCP (Model Context Protocol)**.
 
-## Precursor - What is an API?
+## What is MCP?
+MCP, or Model Context Protocol, is an open-source standard created by Anthropic that gives a universal way for AI applications to connect to outside tools and data sources. Before MCP, every AI application had to build a custom one-off integration for each tool it wanted to use. If you think about an AI tool you use, how many integrations might it have? A lot! This exponentially increased the amount of work for people to make their tools usable. 
+
+## History Lesson - Precursor to MCP
+Before the MCP protocol, AI models relied on functions to call, which were written by developers. This had to be done separately fo revery application that wants to use that function. For example, if you build a weather-lookup function for one chatbot, you couldn't just hand it to a different AI application. The team would have had to re-write another function. Basically the foundation of the MCP framework are APIs. There was no AI involved in deciding how or when to call an API, this was all written by a human. 
+
+##### What is an API?
 Personally, I like to think of MCP as an evolution to pre-existing systems, such as APIs. So let's cover a little background first. 
 
 *The following excerpt is taken from [this site](https://www.mulesoft.com/resources/api/what-is-an-api)*
@@ -60,9 +66,40 @@ A common API architectural style is **REST**, which relies on the HTTP protocol 
 Good example of a REST API: [https://newsapi.org/](https://newsapi.org/)
 
 
-## What is MCP?
-MCP, or Model Context Protocol, is an open-source standard created by Anthropic that gives a universal way for AI applications to connect to local files, databases, external applications, etc. MCP bridges AI and your data in a three part system.
+## TLDR: How is MCP different from an API?
+The key difference between MCPs and APIs is their intended user. In the past, APIs required a human to call them. Now, MCP allows LLMs to use APIs with some other information attached. Now, MCP is like a USB-C port. You can plug many things into a USB-C port because it is a universal standard outlet. 
 
-- Host. This is the main AI application you are using (ex: Claude Desktop)
-- Client. The component in the application that manages your connection to outside resources
-- Server. A lightweight program that securely talks to your data and translates it into a format the AI understands. 
+
+## Core Concepts of MCP
+Client/server model: the AI app is the client. The tool and data are the server.
+There are three things a server can expose:
+- Tools (actions the AI can invoke)
+- Resources (data/context the AI can read)
+- Prompts (reusable templates)
+
+How does discovery work? The client asks: "What can you do?". The server responds with a schema
+
+
+## Code Example 1: Minimal MCP server
+- simplest possible tool-exposing server
+- walk through: define a tool -> describe its schema -> return a result
+
+## Code Example 2: Connect a client and call it from an AI
+- show a client connecting to that server and calling a tool
+- If possible, show an actual LLM (via Anthropic API?) discovering and invoking the tool automatically.
+- This is the "aha" moment - the model deciding on its own to use the tool
+
+## Code Example 3: Real World use cases
+- Show a few real MCP servers people may have heard of (Slack, Github, Google Drive)
+- Talk about the ecosystem: pre-built servers vs building your own
+
+
+
+
+
+
+
+
+
+
+
