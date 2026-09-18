@@ -80,16 +80,17 @@ There are three things a server can expose:
 How does discovery work? The client asks: "What can you do?". The server responds with a schema
 
 
-## Code Example 1: Minimal MCP server
-- simplest possible tool-exposing server
-- walk through: define a tool -> describe its schema -> return a result
+## Code Example 1: Minimal MCP server. Connect client and call it with AI
+In this walkthrough, we have 2 files: server.py and client.py
 
-## Code Example 2: Connect a client and call it from an AI
+In this minimalist code example, I'm going to walk through a simple setup for an MCP client and server. This is using the recommended basic setup from the [MCP Python SDK documentation](https://py.sdk.modelcontextprotocol.io/). For the client file, I am using a LLM that I installed locally on my own computer (llama3.2 in this case). [Installing local LLMs is another side-topic which I have taught an entire workshop on](https://github.com/epurpur/Local_LLM_Workshop). 
+
+In our walkthrough, we have
 - show a client connecting to that server and calling a tool
 - If possible, show an actual LLM (via Anthropic API?) discovering and invoking the tool automatically.
 - This is the "aha" moment - the model deciding on its own to use the tool
 
-## Code Example 3: Real World use cases
+## Real World use cases
 - Show a few real MCP servers people may have heard of (Slack, Github, Google Drive)
 - Talk about the ecosystem: pre-built servers vs building your own
 
