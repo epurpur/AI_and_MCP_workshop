@@ -1,7 +1,7 @@
 # AI and MCP (Model Context Protocol) Workshop
 
 ```
-Last updated 08/15/26
+Last updated 09/18/26
 ```
 
 ## **About Me**
