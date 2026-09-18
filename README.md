@@ -47,7 +47,9 @@ In the AI-enabled world that we live in, a new technology is becoming more preva
 ## What is MCP?
 MCP, or Model Context Protocol, is an open-source standard created by Anthropic that gives a universal way for AI applications to connect to outside tools and data sources. Before MCP, every AI application had to build a custom one-off integration for each tool it wanted to use. If you think about an AI tool you use, how many integrations might it have? A lot! This exponentially increased the amount of work for people to make their tools usable. 
 
-## History Lesson - Precursor to MCP
+## History Lesson - Precursor to MCP, including protocols/standards
+I will start with **standards** and **protocols**. A standard is an official, agreed-upon rulebook or set of specifications, while a protocol is the specific step-by-step procedure or language used to carry out an action within those rules. Most pieces of tech, whether it be a physical device like a USB-C drive, or internet protocol like HTTP, follows a standard. This allows different systems around the world to be interoperable. 
+
 Before the MCP protocol, AI models relied on functions to call, which were written by developers. This had to be done separately fo revery application that wants to use that function. For example, if you build a weather-lookup function for one chatbot, you couldn't just hand it to a different AI application. The team would have had to re-write another function. Basically the foundation of the MCP framework are APIs. There was no AI involved in deciding how or when to call an API, this was all written by a human. 
 
 ##### What is an API?
@@ -61,7 +63,7 @@ For example, when you use an application on your device, the application connect
 An analog example in real life...
 If you go to a restaurant, you sit down at a table and look at a menu. The server comes and takes your order. Your order is then taken to the kitchen where they prepare the food. In this case, the server is the API, which is a layer of interaction between the client and the kitchen. You (probably) can't go directly into the kitchen and order food. The waiter is the intermediary that takes your information and interprets it into a form the kitchen can understand. The response (the food in this case) is then sent back to you, the client. 
 
-A common API architectural style is **REST**, which relies on the HTTP protocol and **JSON** data format to send and receive messages. It is a set of rules that developers follow when they create their API. One of these rules states that you can get a piece of data (called a resource) when you send a request to a specific URL. 
+A common API architectural style is **REST**, which relies on the **HTTP protocol** and **JSON** data format to send and receive messages. It is a set of rules that developers follow when they create their API. One of these rules states that you can get a piece of data (called a resource) when you send a request to a specific URL. 
 
 Good example of a REST API: [https://newsapi.org/](https://newsapi.org/)
 
@@ -77,7 +79,9 @@ There are three things a server can expose:
 - Resources (data/context the AI can read)
 - Prompts (reusable templates)
 
-How does discovery work? The client asks: "What can you do?". The server responds with a schema
+To say a little more, the client is the AI LLM which makes requests. Often times that is via a human user. If you are using a chatbot like Claude, ChatGPT, Gemini, you are making requests to the client. The server runs in the background, waiting for requests from the client and it fulfills those with a response of some kind. 
+
+The first step in this process is the client asks the server: "What can you do?". The server responds with a structured list of all it's capabilities which are tools, resources, and prompts. This is why MCP is usable across all compatible applications. Nothing is hard-coded on the client side about what a specific server does. It is all discovered dynamically when a connection is made. AI doesn't automatically use everything a server exposes. Tols are invoked selectively based on the conversation. 
 
 
 ## Code Example 1: Minimal MCP server. Connect client and call it with AI
