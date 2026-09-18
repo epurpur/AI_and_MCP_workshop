@@ -95,8 +95,7 @@ In our walkthrough, we have
 - This is the "aha" moment - the model deciding on its own to use the tool
 
 ## Real World use cases
-- Show a few real MCP servers people may have heard of (Slack, Github, Google Drive)
-- Talk about the ecosystem: pre-built servers vs building your own
+**Slack** - Slack is a messaging platform commonly used in business. The UVA Library organization uses it for internal communication. The Slack MCP server lets AI search channels, read conversation context, and act inside the workspace. The "agents and apps" is a great example of MCP integration. These are other services that Slack can embed and interact with.  
 
 
 
