@@ -85,14 +85,12 @@ The first step in this process is the client asks the server: "What can you do?"
 
 
 ## Code Example 1: Minimal MCP server. Connect client and call it with AI
-In this walkthrough, we have 2 files: server.py and client.py
-
 In this minimalist code example, I'm going to walk through a simple setup for an MCP client and server. This is using the recommended basic setup from the [MCP Python SDK documentation](https://py.sdk.modelcontextprotocol.io/). For the client file, I am using a LLM that I installed locally on my own computer (llama3.2 in this case). [Installing local LLMs is another side-topic which I have taught an entire workshop on](https://github.com/epurpur/Local_LLM_Workshop). 
 
 In our walkthrough, we have
-- show a client connecting to that server and calling a tool
-- If possible, show an actual LLM (via Anthropic API?) discovering and invoking the tool automatically.
-- This is the "aha" moment - the model deciding on its own to use the tool
+- only 2 files, server.py and client.py
+- Bare bones server.py setup. The server provides tools, resources, and prompts
+- 
 
 ## Real World use cases
 **Slack** - Slack is a messaging platform commonly used in business. The UVA Library organization uses it for internal communication. The Slack MCP server lets AI search channels, read conversation context, and act inside the workspace. The "agents and apps" is a great example of MCP integration. These are other services that Slack can embed and interact with.  
