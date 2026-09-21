@@ -1,3 +1,4 @@
+
 from mcp.server.mcpserver import MCPServer
 
 #this actually instantiates the server. Think of it like an empty filing cabinet to which you give a label
@@ -29,12 +30,12 @@ def get_attractions(attraction: str) -> str:
 #must declare each resource as an MCP resource in order for LLM to read it
 @mcp.resource("cities://supported")     
 def supported_cities() -> str:
-    """List of cities this server has data for."""
+    """List of cities this server has data for. These are international cities that people want information about."""
     return "San Francisco, New York, London"
 
 @mcp.resource("attractions://supported")
 def supported_attractions() -> str:
-    """List of attractions this server has data for."""
+    """List of attractions this server has data for. These are well known attractions that people want to visit."""
     return "Golden Gate Bridge, Times Square, Buckingham Palace"
 
 
@@ -47,5 +48,5 @@ def weather_report(city: str) -> str:
 
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": #this just checks if a python file is being run directly of it if is being imported as another module/file
     mcp.run()

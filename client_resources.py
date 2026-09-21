@@ -15,10 +15,6 @@ async def main():
         async with ClientSession(read, write) as session:
             await session.initialize()
 
-            # Discover available tools
-            tools = await session.list_tools()
-            print("Available tools:", [t.name for t in tools.tools])
-
 
             # Discover available resources
             resources = await session.list_resources()
@@ -37,6 +33,12 @@ async def main():
             resource_result = await session.read_resource("cities://supported")
             for content in resource_result.contents:
                 print("Resource content:", content.text)
+
+            # Read all available resources dynamically
+            for r in resources.resources:
+                result = await session.read_resource(r.uri)
+                for content in result.contents:
+                    print(f"{r.uri} ->", content.text)
 
             # Discover available prompts
             prompts = await session.list_prompts()
