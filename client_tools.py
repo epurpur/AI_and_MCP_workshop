@@ -25,7 +25,7 @@ async def main():
             print(f"Question: {question}")
 
             # # Example 2
-            # question = "\n What is there to do for fun in New York?"  
+            # question = "\n What is there to see in New York?"  
             # print(f"Question: {question}")
 
             response = ollama.chat(
