@@ -85,7 +85,7 @@ The first step in this process is the client asks the server: "What can you do?"
 
 
 ## Code Example 1: Minimal MCP server. Connect client and call it with AI
-In this minimalist code example, I'm going to walk through a simple setup for an MCP client and server. This is using the recommended basic setup from the [MCP Python SDK documentation](https://py.sdk.modelcontextprotocol.io/). For the client file, I am using a LLM that I installed locally on my own computer (llama3.2 in this case). [Installing local LLMs is another side-topic which I have taught an entire workshop on](https://github.com/epurpur/Local_LLM_Workshop). 
+In this minimalist code example, I'm going to walk through a simple setup for an MCP client and server. This is using the recommended basic setup from the [MCP Python SDK documentation](https://py.sdk.modelcontextprotocol.io/). For the client file, I am using a LLM that I installed locally on my own computer (llama3.2 in this case). Installing local LLMs is another side-topic which I have taught an entire workshop on. For this code example specifically, you'll need to install llama3.2. I have a link here to the [Ollama section of my Local-LLMs workshop](https://github.com/epurpur/Local_LLM_Workshop#ollama). 
 
 In our walkthrough, we have
 - only 2 files, server.py and client.py
