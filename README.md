@@ -50,7 +50,7 @@ MCP, or Model Context Protocol, is an open-source standard created by Anthropic 
 ## History Lesson - Precursor to MCP, including protocols/standards
 I will start with **standards** and **protocols**. A standard is an official, agreed-upon rulebook or set of specifications, while a protocol is the specific step-by-step procedure or language used to carry out an action within those rules. Most pieces of tech, whether it be a physical device like a USB-C drive, or internet protocol like HTTP, follows a standard. This allows different systems around the world to be interoperable. 
 
-Before the MCP protocol, AI models relied on functions to call, which were written by developers. This had to be done separately fo revery application that wants to use that function. For example, if you build a weather-lookup function for one chatbot, you couldn't just hand it to a different AI application. The team would have had to re-write another function. Basically the foundation of the MCP framework are APIs. There was no AI involved in deciding how or when to call an API, this was all written by a human. 
+Before the MCP protocol, AI models relied on functions to call, which were written by developers. This had to be done separately for every application that wants to use that function. For example, if you build a weather-lookup function for one chatbot, you couldn't just hand it to a different AI application. The team would have had to re-write another function. This was an onerous task. 
 
 ##### What is an API?
 Personally, I like to think of MCP as an evolution to pre-existing systems, such as APIs. So let's cover a little background first. 
@@ -69,7 +69,7 @@ Good example of a REST API: [https://newsapi.org/](https://newsapi.org/)
 
 
 ## TLDR: How is MCP different from an API?
-The key difference between MCPs and APIs is their intended user. In the past, APIs required a human to call them. Now, MCP allows LLMs to use APIs with some other information attached. Now, MCP is like a USB-C port. You can plug many things into a USB-C port because it is a universal standard outlet. 
+The key difference between MCPs and APIs is their intended user. In the past, APIs required a human to call them. The intended user of MCP is a LLM or AI system. 
 
 
 ## Core Concepts of MCP
@@ -81,16 +81,18 @@ There are three things a server can expose:
 
 To say a little more, the client is the AI LLM which makes requests. Often times that is via a human user. If you are using a chatbot like Claude, ChatGPT, Gemini, you are making requests to the client. The server runs in the background, waiting for requests from the client and it fulfills those with a response of some kind. 
 
-The first step in this process is the client asks the server: "What can you do?". The server responds with a structured list of all it's capabilities which are tools, resources, and prompts. This is why MCP is usable across all compatible applications. Nothing is hard-coded on the client side about what a specific server does. It is all discovered dynamically when a connection is made. AI doesn't automatically use everything a server exposes. Tols are invoked selectively based on the conversation. 
+The first step in this process is the client asks the server: "What can you do?". The server responds with a structured list of all it's capabilities which are tools, resources, and prompts. This is the P (protocol) in MCP and why it is usable across all compatible applications. Nothing is hard-coded on the client side about what a specific server does. It is all discovered dynamically when a connection is made. AI doesn't automatically use everything a server exposes. Tools are invoked selectively based on the conversation. 
 
 
 ## Code Example 1: Minimal MCP server. Connect client and call it with AI
 In this minimalist code example, I'm going to walk through a simple setup for an MCP client and server. This is using the recommended basic setup from the [MCP Python SDK documentation](https://py.sdk.modelcontextprotocol.io/). For the client file, I am using a LLM that I installed locally on my own computer (llama3.2 in this case). Installing local LLMs is another side-topic which I have taught an entire workshop on. For this code example specifically, you'll need to install llama3.2. I have a link here to the [Ollama section of my Local-LLMs workshop](https://github.com/epurpur/Local_LLM_Workshop#ollama). 
 
-In our walkthrough, we have
+In our walkthrough, you'll see...
 - only 2 files, server.py and client.py
 - Bare bones server.py setup. The server provides tools, resources, and prompts
-- 
+- Examples of calls to access those types of resources
+- Interact with the underlying LLM via natural language prompting
+- get a better sense of how the LLM handles prompts
 
 ## Real World use cases
 **Slack** - Slack is a messaging platform commonly used in business. The UVA Library organization uses it for internal communication. The Slack MCP server lets AI search channels, read conversation context, and act inside the workspace. The "agents and apps" is a great example of MCP integration. These are other services that Slack can embed and interact with.  
