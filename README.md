@@ -84,7 +84,7 @@ To say a little more, the client is the AI LLM which makes requests. Often times
 The first step in this process is the client asks the server: "What can you do?". The server responds with a structured list of all it's capabilities which are tools, resources, and prompts. This is the P (protocol) in MCP and why it is usable across all compatible applications. Nothing is hard-coded on the client side about what a specific server does. It is all discovered dynamically when a connection is made. AI doesn't automatically use everything a server exposes. Tools are invoked selectively based on the conversation. 
 
 
-## Code Example 1: Minimal MCP server. Connect client and call it with AI
+## Code Example: Minimal MCP server. Connect client and call it with AI
 In this minimalist code example, I'm going to walk through a simple setup for an MCP client and server. This is using the recommended basic setup from the [MCP Python SDK documentation](https://py.sdk.modelcontextprotocol.io/). For the client file, I am using a LLM that I installed locally on my own computer (llama3.2 in this case). Installing local LLMs is another side-topic which I have taught an entire workshop on. For this code example specifically, you'll need to install llama3.2. I have a link here to the [Ollama section of my Local-LLMs workshop](https://github.com/epurpur/Local_LLM_Workshop#ollama). 
 
 In our walkthrough, you'll see...
