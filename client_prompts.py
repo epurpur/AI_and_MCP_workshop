@@ -15,10 +15,7 @@ import ollama
 #      instruction like "Keep it under 2 sentences" or "Mention nearby
 #      indoor activities if it's raining."
 #   3. Re-run this script with NO changes made here.
-#   4. Compare the "WITH PROMPT TEMPLATE" answer before and after your
-#      edit. If it changes purely because you edited server.py, that
-#      proves the template is real and is actually shaping the LLM's
-#      response - not just decorative text.
+
 
 
 async def main():
